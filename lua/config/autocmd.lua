@@ -63,6 +63,39 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.linebreak = true
     vim.keymap.set("n", "j", "gj", { buffer = true })
     vim.keymap.set("n", "k", "gk", { buffer = true })
+    
+    -- Auto-continue markdown lists (Obsidian-like behavior)
+    vim.keymap.set("i", "<CR>", function()
+      local line = vim.api.nvim_get_current_line()
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+      
+      -- Match bullet points: -, *, +
+      local bullet = line:match("^(%s*)[%-%*%+]%s")
+      if bullet then
+        -- Check if line has content after bullet
+        if line:match("^%s*[%-%*%+]%s+%S") then
+          return "<CR>" .. bullet .. line:match("^%s*([%-%*%+])") .. " "
+        else
+          -- Empty bullet line, remove it
+          return "<C-u>"
+        end
+      end
+      
+      -- Match numbered lists: 1., 2., etc.
+      local indent, num = line:match("^(%s*)(%d+)%.%s")
+      if indent and num then
+        -- Check if line has content after number
+        if line:match("^%s*%d+%.%s+%S") then
+          return "<CR>" .. indent .. (tonumber(num) + 1) .. ". "
+        else
+          -- Empty numbered line, remove it
+          return "<C-u>"
+        end
+      end
+      
+      -- Default behavior
+      return "<CR>"
+    end, { buffer = true, expr = true })
   end,
 })
 
