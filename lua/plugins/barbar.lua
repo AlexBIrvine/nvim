@@ -20,9 +20,10 @@ require("barbar").setup({
       [vim.diagnostic.severity.ERROR] = {enabled = true, icon = ' '},
     },
     gitsigns = {
-      added = {enabled = true, icon = ' '},
-      changed = {enabled = true, icon = ' '},
-      deleted = {enabled = true, icon = ' '},
+      added = {enabled = false, icon = ' '},
+      changed = {enabled = false, icon = ' '},
+      deleted = {enabled = false, icon = ' '},
+       
     },
     separator = {left = '▎', right = ''},
 

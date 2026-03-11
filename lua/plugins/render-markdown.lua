@@ -90,7 +90,7 @@ require('render-markdown').setup({
     },
     checkbox = {
         enabled = true,
-        render_modes = false,
+        render_modes = true,
         bullet = false,
         right_pad = 1,
         unchecked = {

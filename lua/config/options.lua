@@ -22,12 +22,28 @@ local options = {
 	smarttab = true, --indentation stuff
 	cindent = true,
 	autoindent = false,
-	tabstop = 4, --visual width of tab
+
+  -- Tab options
+  tabstop = 2,
+  shiftwidth = 2,
+  softtabstop = 2,
+  expandtab = true,
+
+  -- Show whitespace
+  list = true,
+  listchars = {
+    tab = "→ ",
+    trail = "•",
+    space = "•",
+    nbsp = "␣",
+    extends = "›",
+    precedes = "‹",
+  },
 
 	foldmethod = "expr",
 	foldlevel = 99, --disable folding, lower #s enable
 	foldexpr = "nvim_treesitter#foldexpr()",
-	
+
 	termguicolors = true,
 
 	ignorecase = true, --ignore case while searching

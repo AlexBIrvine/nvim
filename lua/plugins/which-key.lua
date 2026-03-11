@@ -1,23 +1,67 @@
 local wk = require("which-key")
+
+wk.setup({
+	preset = "modern",
+	delay = 300,
+})
+
 wk.add({
-{ "<leader>d", desc = "duplicate file" },
-{ "<leader>p", desc = "toggle theme" },
-{ "<leader>u", desc = "open url" },
-{ "<leader>z", desc = "floating terminal" },
-{ "<leader>f", desc = "fzf" },
-{ "<leader>g", desc = "grep" },
-{ "<leader>G", desc = "grep under cursor" },
-{ "<leader>x", desc = "chmod +x" },
-{ "<leader>t", desc = "view files" },
-{ "<leader>R", desc = "reload config" },
-{ "<leader>vs", desc = "vsplit next buf" },
-{ "<leader>w", desc = "write" },
-{ "<leader>W", desc = "toggle wrap" },
-{ "<leader>q", desc = "close buf" },
-{ "<leader>Q", desc = "close buf!" },
-{ "<leader>U", desc = "close ALL buf" },
-{ "<leader>nn", desc = "toggle relative nums" },
-{ "<leader>H", desc = "htop terminal" },
-{ "<leader>T", desc = "git status" },
-{ "<leader>F", desc = "fzf opts" },
+	-- ---------------------------------------------------------
+	--                      Groups
+	-- ---------------------------------------------------------
+	{ "<leader>l", group = "LSP" },
+	{ "<leader>f", group = "Find" },
+	{ "<leader>F", group = "Find (location)" },
+	{ "<leader>g", group = "Grep" },
+
+	-- ---------------------------------------------------------
+	--                      LSP
+	-- ---------------------------------------------------------
+	{ "<leader>ld", desc = "Definition" },
+	{ "<leader>lD", desc = "Declaration" },
+	{ "<leader>lr", desc = "References" },
+	{ "<leader>li", desc = "Implementation" },
+	{ "<leader>lh", desc = "Hover docs" },
+	{ "<leader>ln", desc = "Rename" },
+	{ "<leader>la", desc = "Code actions" },
+	{ "<leader>le", desc = "Diagnostic float" },
+	{ "<leader>lk", desc = "Previous diagnostic" },
+	{ "<leader>lj", desc = "Next diagnostic" },
+
+	-- ---------------------------------------------------------
+	--                   Fuzzy / Grep
+	-- ---------------------------------------------------------
+	{ "<leader>f", desc = "Find files (cwd)" },
+	{ "<leader>Fh", desc = "Find files (home)" },
+	{ "<leader>Fc", desc = "Find files (.config)" },
+	{ "<leader>Fl", desc = "Find files (.local/src)" },
+	{ "<leader>Ff", desc = "Find files (above)" },
+	{ "<leader>Fr", desc = "Resume last search" },
+	{ "<leader>g", desc = "Grep" },
+	{ "<leader>G", desc = "Grep word under cursor" },
+
+	-- ---------------------------------------------------------
+	--                      Buffers
+	-- ---------------------------------------------------------
+	{ "<leader>q", desc = "Quit" },
+	{ "<leader>Q", desc = "Force close buffer" },
+	{ "<leader>U", desc = "Close all buffers" },
+
+	-- ---------------------------------------------------------
+	--                  Code Companion
+	-- ---------------------------------------------------------
+	{ "<leader>a", group = "AI" },
+	{ "<leader>ac", desc = "Open chat" },
+	{ "<leader>aa", desc = "Add buffer to chat" },
+	{ "<leader>ai", desc = "Inline assist" },
+	-- ---------------------------------------------------------
+	--                      Misc
+	-- ---------------------------------------------------------
+	{ "<leader>t", desc = "File explorer" },
+	{ "<leader>P", desc = "Plugin install" },
+	{ "<leader>z", desc = "Floating terminal" },
+	{ "<leader>T", desc = "Better terminal" },
+	{ "<leader>s", desc = "Save" },
+	{ "<leader>R", desc = "Reload config" },
+	{ "<leader>rc", desc = "Run code" },
 })
