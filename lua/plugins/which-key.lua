@@ -54,6 +54,19 @@ wk.add({
 	{ "<leader>ac", desc = "Open chat" },
 	{ "<leader>aa", desc = "Add buffer to chat" },
 	{ "<leader>ai", desc = "Inline assist" },
+
+	-- ---------------------------------------------------------
+	--                  Neotest
+	-- ---------------------------------------------------------
+	{ "<leader>n", group = "Test" },
+	{ "<leader>nn", desc = "Run nearest test" },
+	{ "<leader>nf", desc = "Run file tests" },
+	{ "<leader>ns", desc = "Stop tests" },
+	{ "<leader>no", desc = "Open output" },
+	{ "<leader>nS", desc = "Toggle summary" },
+	{ "<leader>nj", desc = "Next failed test" },
+	{ "<leader>nk", desc = "Previous failed test" },
+
 	-- ---------------------------------------------------------
 	--                      Misc
 	-- ---------------------------------------------------------

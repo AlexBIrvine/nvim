@@ -39,8 +39,15 @@ map("n", "<A-0>", "<Cmd>BufferLast<CR>", "Last buffer")
 map("n", "<A-p>", "<Cmd>BufferPin<CR>", "Pin buffer")
 
 -- ---------------------------------------------------------
---                      Windows
+--                    Neotest  (<leader>n)
 -- ---------------------------------------------------------
+map("n", "<leader>nn", "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test")
+map("n", "<leader>nf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run file tests")
+map("n", "<leader>ns", "<cmd>lua require('neotest').run.stop()<CR>", "Stop tests")
+map("n", "<leader>no", "<cmd>lua require('neotest').output.open()<CR>", "Open output")
+map("n", "<leader>nS", "<cmd>lua require('neotest').summary.toggle()<CR>", "Toggle summary")
+map("n", "<leader>nj", "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Next failed test")
+map("n", "<leader>nk", "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Previous failed test")
 map("n", "<C-h>", "<C-w>h", "Window left")
 map("n", "<C-j>", "<C-w>j", "Window down")
 map("n", "<C-k>", "<C-w>k", "Window up")
@@ -86,6 +93,17 @@ map("n", "<leader>ai", ":CodeCompanion<CR>", "Inline assist")
 map("v", "<leader>ai", ":CodeCompanion<CR>", "Inline assist selection")
 
 -- ---------------------------------------------------------
+--                    Neotest  (<leader>n)
+-- ---------------------------------------------------------
+map("n", "<leader>nn", "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test")
+map("n", "<leader>nf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run file tests")
+map("n", "<leader>ns", "<cmd>lua require('neotest').run.stop()<CR>", "Stop tests")
+map("n", "<leader>no", "<cmd>lua require('neotest').output.open()<CR>", "Open output")
+map("n", "<leader>nS", "<cmd>lua require('neotest').summary.toggle()<CR>", "Toggle summary")
+map("n", "<leader>nj", "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Next failed test")
+map("n", "<leader>nk", "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Previous failed test")
+
+-- ---------------------------------------------------------
 --                      Misc
 -- ---------------------------------------------------------
 map("n", "<leader>t", ":NvimTreeToggle<CR>", "File explorer")
@@ -96,5 +114,6 @@ map("n", "<leader>s", ":w<CR>", "Save")
 map("n", "<leader>R", ":so %<CR>", "Reload config")
 map("v", "<leader>i", "=gv", "Auto indent")
 map("i", "jk", "<Esc>", "Escape")
+map("t", "jk", "<Esc>", "Escape")
 map("n", "<leader>rc", ":RunCode<CR>", "Run code")
 map("n", "<leader>T", ":lua require('betterTerm').open()<CR>", "Better terminal")
