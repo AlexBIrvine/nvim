@@ -104,6 +104,35 @@ map("n", "<leader>nj", "<cmd>lua require('neotest').jump.next({ status = 'failed
 map("n", "<leader>nk", "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Previous failed test")
 
 -- ---------------------------------------------------------
+--            Build & Test  (Go / Zig, <leader>r)
+--    (per-filetype, sent to the betterTerm terminal)
+-- ---------------------------------------------------------
+local build_commands = {
+	go = "go build ./...",
+	zig = "zig build",
+}
+
+local test_commands = {
+	go = "go test ./...",
+	zig = "zig build test",
+}
+
+local function run_in_term(commands)
+	return function()
+		local ft = vim.bo.filetype
+		local cmd = commands[ft]
+		if not cmd then
+			vim.notify("No command configured for filetype: " .. ft, vim.log.levels.WARN)
+			return
+		end
+		require("betterTerm").send(cmd)
+	end
+end
+
+map("n", "<leader>rb", run_in_term(build_commands), "Build/compile")
+map("n", "<leader>rt", run_in_term(test_commands), "Run tests (terminal)")
+
+-- ---------------------------------------------------------
 --                      Misc
 -- ---------------------------------------------------------
 map("n", "<leader>t", ":NvimTreeToggle<CR>", "File explorer")

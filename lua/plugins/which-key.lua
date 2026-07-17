@@ -77,4 +77,6 @@ wk.add({
 	{ "<leader>s", desc = "Save" },
 	{ "<leader>R", desc = "Reload config" },
 	{ "<leader>rc", desc = "Run code" },
+	{ "<leader>rb", desc = "Build/compile" },
+	{ "<leader>rt", desc = "Run tests (terminal)" },
 })
