@@ -91,6 +91,8 @@ map("n", "<leader>aa", ":CodeCompanionChat Add<CR>", "Add buffer to chat")
 map("v", "<leader>aa", ":CodeCompanionChat Add<CR>", "Add selection to chat")
 map("n", "<leader>ai", ":CodeCompanion<CR>", "Inline assist")
 map("v", "<leader>ai", ":CodeCompanion<CR>", "Inline assist selection")
+map("n", "<leader>aA", ":CodeCompanionActions<CR>", "Action palette")
+map("v", "<leader>aA", ":CodeCompanionActions<CR>", "Action palette")
 
 -- ---------------------------------------------------------
 --                    Neotest  (<leader>n)

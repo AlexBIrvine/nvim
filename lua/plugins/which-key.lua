@@ -54,6 +54,7 @@ wk.add({
 	{ "<leader>ac", desc = "Open chat" },
 	{ "<leader>aa", desc = "Add buffer to chat" },
 	{ "<leader>ai", desc = "Inline assist" },
+	{ "<leader>aA", desc = "Action palette" },
 
 	-- ---------------------------------------------------------
 	--                  Neotest
